@@ -1,115 +1,575 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tcheuffa Njiena Carlane| Data Analyst Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Alex Morgan | AI & Web Developer Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ecedee;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(16px);
+            background-color: rgba(10, 10, 10, 0.8);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 18px 0;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a5f3fc, #2dd4bf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #2dd4bf;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(95deg, #2dd4bf, #14b8a6);
+            color: #0a0a0a;
+            box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.4);
+            background: linear-gradient(95deg, #14b8a6, #0d9488);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #2dd4bf;
+            color: #2dd4bf;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(45, 212, 191, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px 0;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: rgba(45, 212, 191, 0.15);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2dd4bf;
+            margin-bottom: 24px;
+            border: 1px solid rgba(45, 212, 191, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff, #a5f3fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 550px;
+            margin: 20px 0 32px 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            text-align: center;
+        }
+
+        .avatar-circle {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(145deg, #1e2a2f, #0f172a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5);
+            border: 2px solid rgba(45, 212, 191, 0.3);
+        }
+
+        .avatar-circle i {
+            font-size: 120px;
+            color: #2dd4bf;
+            filter: drop-shadow(0 0 8px rgba(45,212,191,0.4));
+        }
+
+        /* Section styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            background: linear-gradient(120deg, #a5f3fc, #2dd4bf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: #11151f;
+            border-radius: 28px;
+            padding: 28px 22px;
+            text-align: center;
+            width: 160px;
+            transition: all 0.25s ease;
+            border: 1px solid #1e2a3a;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #2dd4bf;
+            box-shadow: 0 15px 30px -12px rgba(45,212,191,0.2);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            color: #2dd4bf;
+            margin-bottom: 16px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #0f1219;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            transition: 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #2dd4bf;
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            background: #1a2533;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #2dd4bf;
+        }
+
+        .project-info {
+            padding: 26px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .project-info p {
+            color: #9ca3af;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .project-tags span {
+            background: #1e293b;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: #2dd4bf;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Contact form & social */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: #0f1219;
+            border-radius: 32px;
+            padding: 40px;
+            border: 1px solid #1e2a3a;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.7rem;
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .social-links a {
+            background: #1a2533;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #2dd4bf;
+            font-size: 1.4rem;
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            background: #2dd4bf;
+            color: #0a0a0a;
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            background: #0a0c12;
+            border: 1px solid #2d3a4a;
+            padding: 14px 20px;
+            border-radius: 30px;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #2dd4bf;
+        }
+
+        .contact-form textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid #1e2a3a;
+            color: #6c7a91;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-flex {
+                flex-direction: column;
+            }
+            .hero {
+                padding: 40px 0;
+            }
+            .avatar-circle {
+                width: 200px;
+                height: 200px;
+            }
+            .avatar-circle i {
+                font-size: 80px;
+            }
+            .contact-wrapper {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Alex<span style="color:#2dd4bf;">.</span>AI</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<header>
-  <nav>
-    <div class="logo">MT</div>
-    <ul id="menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button id="toggle">🌙</button>
-  </nav>
-</header>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-code"></i> AI Engineer & Creator
+                    </div>
+                    <h1>Building digital <span class="gradient-text">experiences</span> that matter</h1>
+                    <p class="hero-description">
+                        Hi, I'm Alex Morgan — I craft modern web apps, AI tools, and interactive interfaces.
+                        4+ years of turning ideas into scalable, elegant code.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-outline">Let's talk</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="avatar-circle">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="home" class="hero">
-  <div class="hero-text">
-    <h1 class="typing"></h1>
-    <p>Data Analyst | Software Engineer | Data Science Student</p>
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Tech <span>toolkit</span></h2>
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fab fa-python"></i><h3>Python</h3></div>
+                    <div class="skill-card"><i class="fab fa-js"></i><h3>JavaScript</h3></div>
+                    <div class="skill-card"><i class="fab fa-react"></i><h3>React</h3></div>
+                    <div class="skill-card"><i class="fab fa-node-js"></i><h3>Node.js</h3></div>
+                    <div class="skill-card"><i class="fas fa-brain"></i><h3>TensorFlow</h3></div>
+                    <div class="skill-card"><i class="fas fa-cloud"></i><h3>Cloud (AWS)</h3></div>
+                </div>
+            </div>
+        </section>
 
-    <div class="buttons">
-      <a href="profile.jpg" download class="btn">Download CV</a>
-      <a href="mailto:tcheucarlane@gmail.com" class="btn-outline">Hire Me</a>
-    </div>
+        <!-- Projects Section -->
+        <section id="projects" style="background: #05070a;">
+            <div class="container">
+                <h2 class="section-title">Featured <span>projects</span></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img"><i class="fas fa-robot"></i></div>
+                        <div class="project-info">
+                            <h3>AI Content Studio</h3>
+                            <p>Generative AI platform that creates blog drafts & social copy using GPT-4 with smart fine-tuning.</p>
+                            <div class="project-tags"><span>Python</span><span>FastAPI</span><span>OpenAI</span></div>
+                            <a href="#" class="project-link">Live demo →</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img"><i class="fas fa-chart-line"></i></div>
+                        <div class="project-info">
+                            <h3>Analytics Dashboard</h3>
+                            <p>Real-time dashboard for e-commerce insights, with custom data visualizations and user filters.</p>
+                            <div class="project-tags"><span>React</span><span>D3.js</span><span>Firebase</span></div>
+                            <a href="#" class="project-link">Live demo →</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img"><i class="fas fa-wallet"></i></div>
+                        <div class="project-info">
+                            <h3>DeFi Pulse</h3>
+                            <p>Web3 interface tracking crypto portfolios, gas fees, and token swaps across Ethereum network.</p>
+                            <div class="project-tags"><span>Web3.js</span><span>Solidity</span><span>Next.js</span></div>
+                            <a href="#" class="project-link">Live demo →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="socials">
-      <a href="https://github.com/Carlytcheu12">GitHub</a>
-      <a href="www.linkedin.com/in/carlane-tcheuffa-njiena-263941381">LinkedIn</a>
-    </div>
-  </div>
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Let’s <span>connect</span></h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Collaborate & create ✨</h3>
+                        <p style="margin-bottom: 16px; color:#b9c3d4;">Have an exciting project? Need a creative developer or AI specialist? I'm currently open for freelance and full-time opportunities.</p>
+                        <p><i class="fas fa-envelope" style="color:#2dd4bf; margin-right: 8px;"></i> alex.morgan@portfolio.dev</p>
+                        <p><i class="fas fa-map-marker-alt" style="color:#2dd4bf; margin-right: 8px;"></i> San Francisco / Remote</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Full name" required>
+                        <input type="email" placeholder="Email address" required>
+                        <textarea rows="4" placeholder="Tell me about your idea..."></textarea>
+                        <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Send Message →</button>
+                        <p id="formFeedback" style="font-size:0.8rem; margin-top:5px; color:#2dd4bf;"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <div class="hero-img">
-    <img src="profile.jpg" alt="profile">
-  </div>
-</section>
+    <footer>
+        <div class="container">
+            <p>© 2025 Alex Morgan — Built with <i class="fas fa-heart" style="color:#2dd4bf;"></i> and modern web tools</p>
+        </div>
+    </footer>
 
-<section id="about" class="section">
-<h2>About Me</h2>
-<p>
-Results-driven Software Engineering graduate with professional experience in software development,
-administrative support, and data analytics. Currently pursuing advanced training in Data Science while 
-building expertise in data analysis, business intelligence, and data visualization. Proficient in Python, SQL, 
-Power BI, Excel, and modern web development technologies. Strong analytical thinker with excellent organizational 
-and communication skills, capable of transforming complex data into actionable insights. Passionate about 
-continuous learning, technology, and solving real-world business challenges through data-driven solutions.
+    <script>
+        // Simple form handling (just for demo feedback)
+        const form = document.getElementById('contactForm');
+        const feedback = document.getElementById('formFeedback');
 
-</p>
-</section>
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            feedback.innerHTML = "✨ Thanks! I'll get back to you soon.";
+            form.reset();
+            setTimeout(() => {
+                feedback.innerHTML = "";
+            }, 3000);
+        });
 
-<section id="skills" class="section">
-<h2>Skills</h2>
-
-<div class="skills-grid">
-<div>Python</div>
-<div>SQL</div>
-<div>Power BI</div>
-<div>Excel</div>
-<div>Data Analysis</div>
-<div>Machine Learning</div>
-<div>HTML/CSS</div>
-<div>JavaScript</div>
-</div>
-</section>
-
-<section id="projects" class="section">
-<h2>Projects</h2>
-
-<div class="cards">
-<div class="card">
-<h3>Superstore Analysis</h3>
-<p>Analyzed 50,000+ records using Python & Power BI to generate business insights.</p>
-</div>
-
-<div class="card">
-<h3>Sales Dashboard</h3>
-<p>Interactive BI dashboard for KPI tracking and performance analysis.</p>
-</div>
-
-<div class="card">
-<h3>Data Cleaning Project</h3>
-<p>Handled missing data, duplicates, and transformations using Python.</p>
-</div>
-</div>
-</section>
-
-<section id="experience" class="section">
-<h2>Experience</h2>
-
-<div class="timeline">
-<div>Gate Immigration - Admin Support (2024–2025)</div>
-<div>Softronik - Software Intern (2022)</div>
-<div>Data Science Training (2025–Present)</div>
-</div>
-</section>
-
-<section id="contact" class="section">
-<h2>Contact</h2>
-<p>Email: tcheucarlane@gmail.com</p>
-<p>Phone: +234 8087559323</p>
-</section>
-
-<script src="script.js"></script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-links a, .hero-buttons a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === "#" || targetId === "") return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
